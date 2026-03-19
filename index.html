@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee Sơn La</title>
+    <title>Cà phê Sơn La</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -12,12 +12,12 @@
             --green-main: #27ae60;
         }
 
-        body { margin: 0; font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f4f4; }
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f4f4; overflow-x: hidden; }
         .hidden { display: none !important; }
 
-        /* --- TRANG CHỦ (HÌNH 31) --- */
+        /* --- TRANG CHỦ --- */
         .top-bar { background: var(--brown-dark); color: white; display: flex; justify-content: space-between; padding: 8px 5%; font-size: 13px; }
-        .auth-links span { cursor: pointer; text-decoration: underline; margin-left: 10px; }
+        .auth-links span { cursor: pointer; text-decoration: underline; }
         
         nav { background: var(--brown-medium); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; }
         .nav-links { display: flex; list-style: none; padding: 0; margin: 0; gap: 20px; color: white; }
@@ -28,7 +28,7 @@
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200') center/cover; 
             display: flex; justify-content: center; align-items: center; color: white; text-align: center; border-bottom: 8px solid var(--brown-dark); 
         }
-        .hero h1 { font-size: 3.5rem; margin: 0; letter-spacing: 4px; }
+        .hero h1 { font-size: 3.5rem; margin: 0; letter-spacing: 4px; text-transform: uppercase; }
 
         /* --- ĐĂNG NHẬP (HÌNH 32) --- */
         #login-screen { 
@@ -36,20 +36,13 @@
             background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200') center/cover; 
             display: flex; justify-content: center; align-items: center; 
         }
-        .login-card { background: rgba(255, 255, 255, 0.95); padding: 25px; border-radius: 8px; width: 320px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-        .back-home { color: #888; font-size: 13px; cursor: pointer; margin-bottom: 15px; display: inline-block; }
-        .back-home:hover { color: var(--brown-dark); }
+        .login-card { background: rgba(255, 255, 255, 0.95); padding: 30px; border-radius: 8px; width: 320px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); text-align: center; }
+        .back-home { color: #888; font-size: 13px; cursor: pointer; margin-bottom: 20px; display: block; text-align: left; }
         .input-group { position: relative; margin-bottom: 15px; }
-        .input-group i { position: absolute; left: 10px; top: 12px; color: var(--green-main); }
-        .input-group input { width: 100%; padding: 10px 10px 10px 35px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
-        .btn-green { background: var(--green-main); color: white; border: none; width: 100%; padding: 12px; cursor: pointer; font-weight: bold; border-radius: 4px; }
-
-        /* --- ĐĂNG KÝ (HÌNH 33) --- */
-        #register-screen { min-height: 100vh; background: #fff; display: flex; justify-content: center; align-items: center; padding: 40px 0; }
-        .reg-card { width: 450px; border: 1px solid #eee; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .form-row { margin-bottom: 15px; }
-        .form-row label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 14px; color: #333; }
-        .form-row input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 2px; box-sizing: border-box; }
+        .input-group i { position: absolute; left: 12px; top: 12px; color: var(--green-main); }
+        .input-group input { width: 100%; padding: 10px 10px 10px 40px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; outline: none; }
+        .btn-green { background: var(--green-main); color: white; border: none; width: 100%; padding: 12px; cursor: pointer; font-weight: bold; border-radius: 4px; font-size: 16px; }
+        .btn-green:hover { background: #219150; }
 
         footer { background: var(--brown-dark); color: white; text-align: center; padding: 20px; font-size: 12px; }
     </style>
@@ -58,9 +51,8 @@
 
     <section id="home-screen">
         <div class="top-bar">
-            <div>Chào mừng bạn đến với Coffee Sơn La!</div>
+            <div>Chào mừng bạn đến với Cà phê Sơn La!</div>
             <div class="auth-links">
-                <span onclick="navTo('register-screen')">Đăng ký</span> / 
                 <span onclick="navTo('login-screen')">Đăng nhập</span>
             </div>
         </div>
@@ -76,7 +68,7 @@
         </nav>
         <div class="hero">
             <div class="hero-content">
-                <h1>COFFEE SƠN LA</h1>
+                <h1>CÀ PHÊ SƠN LA</h1>
                 <p>Hương vị nơi tình yêu bắt đầu</p>
             </div>
         </div>
@@ -86,44 +78,40 @@
     <section id="login-screen" class="hidden">
         <div class="login-card">
             <span class="back-home" onclick="navTo('home-screen')"><i class="fas fa-arrow-left"></i> Quay lại trang chủ</span>
+            
             <div class="input-group">
                 <i class="fas fa-user"></i>
                 <input type="text" placeholder="Email or Phone">
             </div>
+            
             <div class="input-group">
                 <i class="fas fa-lock"></i>
                 <input type="password" placeholder="Password">
             </div>
-            <div style="text-align: left; margin-bottom: 15px;"><a href="#" style="color: var(--green-main); font-size: 12px; text-decoration: none;">Forgot password?</a></div>
-            <button class="btn-green" onclick="navTo('home-screen')">Login</button>
-            <div style="text-align: center; font-size: 12px; margin-top: 15px;">Not a member? <span onclick="navTo('register-screen')" style="color:var(--green-main); cursor:pointer; font-weight:bold;">Signup now</span></div>
-        </div>
-    </section>
-
-    <section id="register-screen" class="hidden">
-        <div class="reg-card">
-            <h2 style="text-align: center; margin-bottom: 25px;">Form Đăng Ký</h2>
-            <div class="form-row"><label>Họ:</label><input type="text"></div>
-            <div class="form-row"><label>Tên:</label><input type="text"></div>
-            <div class="form-row"><label>Ngày sinh:</label><input type="date"></div>
-            <div class="form-row"><label>Số điện thoại:</label><input type="text" placeholder="Ví dụ: 0912345678"></div>
-            <div class="form-row"><label>Email:</label><input type="email"></div>
-            <div class="form-row"><label>Mật khẩu:</label><input type="password"></div>
-            <div class="form-row"><label>Nhập lại mật khẩu:</label><input type="password"></div>
-            <button class="btn-green" onclick="navTo('login-screen')">Đăng ký</button>
-            <div style="text-align: center; margin-top: 15px;">
-                <span onclick="navTo('home-screen')" style="cursor:pointer; color: #666; font-size: 13px;">Quay về Trang chủ</span>
+            
+            <div style="text-align: left; margin-bottom: 20px;">
+                <a href="#" style="color: var(--green-main); font-size: 12px; text-decoration: none;">Forgot password?</a>
             </div>
+            
+            <button class="btn-green" onclick="handleLogin()">Login</button>
         </div>
     </section>
 
     <script>
         function navTo(screenId) {
+            // Ẩn tất cả màn hình
             document.getElementById('home-screen').classList.add('hidden');
             document.getElementById('login-screen').classList.add('hidden');
-            document.getElementById('register-screen').classList.add('hidden');
+            
+            // Hiện màn hình đích
             document.getElementById(screenId).classList.remove('hidden');
             window.scrollTo(0, 0);
+        }
+
+        function handleLogin() {
+            // Mô phỏng đăng nhập thành công và quay lại trang chủ
+            alert("Đăng nhập thành công!");
+            navTo('home-screen');
         }
     </script>
 </body>
